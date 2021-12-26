@@ -1,8 +1,8 @@
-import 'package:ajuda_app/model/weather_report.dart';
-import 'package:ajuda_app/model/album.dart';
-import 'package:ajuda_app/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:ajuda_app/widgets/navigation_drawer_widget.dart';
+
+import 'package:ajuda_app/model/weather_report.dart';
+import 'package:ajuda_app/utils/utils.dart';
+import 'package:ajuda_app/page/settings.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,39 +26,69 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   @override
   void initState() {
     super.initState();
   }
 
-  Future<WeatherReport> getData() async{
-   final WeatherReport data = await Utils.fetchWeatherReport();
-   print(data.toString());
-   return data;
+  Future<WeatherReport> getData() async {
+    final WeatherReport data = await Utils.fetchWeatherReport();
+    print(data.toString());
+    return data;
   }
 
-  void getJSON() async{
-  //  final Album data = await Utils.fetchAlbum();
-  // print(data);
-  print('aqui');
-  Utils.fetchEvents();
+  void getJSON() async {
+    //  final Album data = await Utils.fetchAlbum();
+    // print(data);
+    print('aqui');
+    Utils.fetchEvents();
   }
 
+  void handlePopupSelect(result) {
+    switch (result) {
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SettingsPage()),
+        );
+        break;
+      case 2:
+        print('documentação!!!!');
+        break;
+      default:
+        print('impossivel');
+    }
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        drawer: NavigationDrawerWidget(),
         appBar: AppBar(
           title: Text(MyApp.title),
+          actions: <Widget>[
+            PopupMenuButton(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: Text("Configurações"),
+                  value: 1,
+                ),
+                PopupMenuItem(
+                  child: Text("Documentação"),
+                  value: 2,
+                )
+              ],
+              onSelected: handlePopupSelect,
+            )
+          ],
         ),
         body: Column(
           children: [
             Container(
+              width: double.infinity,
+              margin: EdgeInsets.fromLTRB(10, 100, 10, 10),
               child: RaisedButton(
-                color: Colors.blue,
+                color: Colors.blue[200],
                 textColor: Colors.white,
-                child: Text('Rotina'),
+                child: Text('Agenda'),
                 onPressed: getJSON,
               ),
             ),

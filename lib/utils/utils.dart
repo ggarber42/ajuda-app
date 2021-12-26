@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:ajuda_app/utils/user_secure_storage.dart';
+
 import 'package:ajuda_app/model/weather_report.dart';
 import 'package:ajuda_app/model/album.dart';
 import 'package:http/http.dart' as http;
@@ -35,16 +37,20 @@ class Utils {
     }
   }
 
+  void getAccesToken() async{
+    
+  }
+
   static void fetchEvents() async {
     final FlutterTts tts = FlutterTts();
     await tts.awaitSpeakCompletion(true);
     final accesToken =
-        'ya29.a0ARrdaM9LNqdAdo2cPLOWAaXLqOhP5cpKxXXuoV0NXfDd38VgWfNXjc_bK-neGusm0RX6F9DGA4BT2XEcYNyi_tXZLyUWK5qB0hKJZVj9t-wWMkynjN15zv0dKq75WdDpAcEbmIgmFG61hqnoYfKl3EcPLXsECw';
+        'ya29.a0ARrdaM8T5e3MDXcredhsPUK_L77pO89gtgk9HNjSEOxzhZFo_1IOPGPmo_2LCDT4IhZmOxWgoAsYDHPaDckoC-XE4PdqTVe6cQY9ofDLuFdfw92MpWnfA-pvtFC9tDGhTGaCG8nsJCvr1c7n4cZd75hspi73RQ';
     final response = await http.get(
         Uri.parse(
             'https://www.googleapis.com/calendar/v3/calendars/guilherme.garber@linx.com.br/events?singleEvents=true&timeMin=2021-12-24T17:59:17.919Z&timeMax=2021-12-31T17:59:17.919Z&orderby=startTime&singleEvents=true'),
         headers: {'Authorization': 'Bearer $accesToken'});
-    var events = jsonDecode(response.body)['items'];
+    final events = jsonDecode(response.body)['items'];
     var text = '';
     events.forEach((elem) {
       print(elem['summary']);
