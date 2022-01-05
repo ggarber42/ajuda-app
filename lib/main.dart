@@ -37,11 +37,9 @@ class _MainPageState extends State<MainPage> {
     return data;
   }
 
-  void getJSON() async {
-    //  final Album data = await Utils.fetchAlbum();
-    // print(data);
-    print('aqui');
-    Utils.fetchEvents();
+  void getAgenda() async {
+    final accesToken = await Utils.getAccesToken();
+    Utils.fetchEvents(accesToken);
   }
 
   void handlePopupSelect(result) {
@@ -89,7 +87,7 @@ class _MainPageState extends State<MainPage> {
                 color: Colors.blue[200],
                 textColor: Colors.white,
                 child: Text('Agenda'),
-                onPressed: getJSON,
+                onPressed: getAgenda,
               ),
             ),
           ],
