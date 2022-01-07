@@ -39,7 +39,7 @@ Depois no link abaixo consegue-se o *refresh_token*:
 
 ![image](https://user-images.githubusercontent.com/26423380/148477269-7ad168f8-26cf-4c3d-a77b-e0059691726e.png)
 
-![image](https://user-images.githubusercontent.com/26423380/148477295-9be4bd7a-c81f-4ac4-b151-0ec00a2345b4.png)
+![image](https://user-images.githubusercontent.com/26423380/148477615-c821a43b-dea2-4837-b720-77583cfe1e20.png)
 
 [vídeo de referências](https://www.youtube.com/watch?v=zrLf4KMs71E)
 
