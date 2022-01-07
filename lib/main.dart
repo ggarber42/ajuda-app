@@ -1,6 +1,5 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-
-import 'package:ajuda_app/model/weather_report.dart';
 import 'package:ajuda_app/utils/utils.dart';
 import 'package:ajuda_app/page/settings.dart';
 
@@ -26,20 +25,23 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  var isLoading = false;
   @override
   void initState() {
     super.initState();
   }
 
-  Future<WeatherReport> getData() async {
-    final WeatherReport data = await Utils.fetchWeatherReport();
-    print(data.toString());
-    return data;
-  }
-
   void getAgenda() async {
+    setState(() {
+      isLoading = true;
+    });
     final accesToken = await Utils.getAccesToken();
     Utils.fetchEvents(accesToken);
+    Timer(Duration(milliseconds: 1000), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
   }
 
   void handlePopupSelect(result) {
@@ -49,9 +51,6 @@ class _MainPageState extends State<MainPage> {
           context,
           MaterialPageRoute(builder: (context) => SettingsPage()),
         );
-        break;
-      case 2:
-        print('documentação!!!!');
         break;
       default:
         print('impossivel');
@@ -69,10 +68,6 @@ class _MainPageState extends State<MainPage> {
                   child: Text("Configurações"),
                   value: 1,
                 ),
-                PopupMenuItem(
-                  child: Text("Documentação"),
-                  value: 2,
-                )
               ],
               onSelected: handlePopupSelect,
             )
@@ -86,7 +81,9 @@ class _MainPageState extends State<MainPage> {
               child: RaisedButton(
                 color: Colors.blue[200],
                 textColor: Colors.white,
-                child: Text('Agenda'),
+                child:isLoading
+                ? CircularProgressIndicator(color:Colors.white)
+                : Text('Agenda'),
                 onPressed: getAgenda,
               ),
             ),
