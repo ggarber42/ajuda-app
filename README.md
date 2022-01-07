@@ -1,16 +1,34 @@
-# ajuda_app
+# ajuda_app - O app que te ajuda!
 
-A new Flutter project.
+1. [ Motivação. ](#motivacao)
+2. [ Descrição ](#desc)
+3. [Configuração do google](#google)
+4. [Configurando o aplicativo](#materiais)
+5. [ Demonstração ](#fotos)
 
-## Getting Started
+<a name="motivacao"></a>
+## 1. Motivação
 
-This project is a starting point for a Flutter application.
+Me ajudar a não perder as reuniões.
 
-A few resources to get you started if this is your first Flutter project:
+<a name="desc"></a>
+## 2. Descrição
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+A ideia do projeto é ter um termômetro que me avise de maneira visual quando o café está esfriando. Isso é feito através da variação da frequência com que o LED pisca. Quando mais frio o café, maior a frequência com que o LED vai piscar.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+No projeto final, o sensor de temperatura vai ficar acoplado em um porta copo e este irá ficar em contato com a caneca com café. O circuito por sua vez ficará em um escudo conectado ao arduino.
+
+<a name="google"></a>
+## 3. Configuração do Google
+
+<a name="materiais"></a>
+## 4. Configuração do aplicativo
+
+
+
+<a name="img"></a>
+## 5. Demonstração
+
+Vídeo abaixo monstrando funcionamento:
+
+https://drive.google.com/file/d/1wSaEhLfIUYBExPkO4JlugqPKGCFyQ3FK/view?usp=sharing
