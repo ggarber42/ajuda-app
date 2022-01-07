@@ -31,6 +31,8 @@ No projeto final, o sensor de temperatura vai ficar acoplado em um porta copo e 
 
 Vídeo abaixo monstrando funcionamento:
 
-[Watch the video](https://drive.google.com/file/d/1wSaEhLfIUYBExPkO4JlugqPKGCFyQ3FK/view?usp=sharing)
+https://user-images.githubusercontent.com/26423380/148475318-7342c3f4-7fd7-441e-b7b7-1799996bda8b.mp4
+
+
 
 
